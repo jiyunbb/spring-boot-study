@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 목록 페이지</title>
+</head>
+<style>
+    .layout {
+      width : 50px,
+      margin : 0 auto;
+      margin-top : 40px;
+    }
+</style>
+<body>
+<p>상품정보</p>
+<div class="layout">
+    <table>
+        <thead></thead>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>정가</th>
+            <th>할인가격</th>
+            <th>할인율</th>
+        </tr>
+        <tbody>
+        <tr th:each="goods : ${goodslist}">
+            <td th:text="${goods.id}">번호</td>
+            <td><a th:text="${goods.name}"></a></td> <!-- th:href="@{/goods/view(id=${goods.id})}"-->
+            <td th:text="${goods.customerPrice}">정가</td>
+            <td th:text="${goods.productPrice}">할인가격</td>
+            <td th:text="${goods.discountRate}">할인율</td>
+        </tr>
+        </tbody>
+    </table>
+    </table>
+</div>
+</body>
+</html>

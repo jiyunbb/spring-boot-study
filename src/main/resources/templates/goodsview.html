@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 상세 페이지</title>
+</head>
+<body>
+    <form action="/cart" th:object="${goods}" method="post">
+        <h1 th:text="${goods.id}">상품번호</h1>
+        상품명 : <p th:text="${goods.name}">상품명</p>
+        정가 : <p th:text="${goods.customerPrice}">정가</p>
+        할인가 : <p th:text="${goods.productPrice}">할인가</p>
+        할인율 : <p th:text="${goods.discountRate}">할인율</p>
+        <button type="submit">장바구니</button>
+    </form>
+</body>
+</html>
