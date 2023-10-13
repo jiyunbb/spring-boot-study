@@ -4,7 +4,7 @@ import com.study.jiyunboard.entity.Cart;
 import com.study.jiyunboard.entity.Goods;
 import com.study.jiyunboard.entity.Member;
 import com.study.jiyunboard.repository.CartRepository;
-import com.study.jiyunboard.request.CartRequestData;
+import com.study.jiyunboard.request.CartRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ public class CartService {
     CartRepository cartRepository;
 
     // 장바구니 담기.
-    public void addCart(CartRequestData cartRequestData) {
-        Member member = cartRequestData.getMember();
-        Goods goods = cartRequestData.getGoods();
-        int count = cartRequestData.getCount();
+    public void addCart(CartRequest cartRequest) {
+        Member member = cartRequest.getMember();
+        Goods goods = cartRequest.getGoods();
+        int count = cartRequest.getCount();
 
         Cart savedCart = cartRepository.findByMemberAndGoods(member, goods);
         if (savedCart != null) {

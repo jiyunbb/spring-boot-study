@@ -5,7 +5,7 @@ import com.study.jiyunboard.entity.Member;
 import lombok.Data;
 
 @Data
-public class CartRequestData {
+public class CartRequest {
     private Goods goods;
     private Member member;
     private int count;

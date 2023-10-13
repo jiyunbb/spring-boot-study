@@ -24,7 +24,7 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public void DeleteMember(Integer id) {
+    public void deleteMember(Integer id) {
         memberRepository.deleteById(id);
     }
 }

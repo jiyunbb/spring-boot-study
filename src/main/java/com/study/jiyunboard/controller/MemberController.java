@@ -7,21 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 public class MemberController {
     @Autowired
     private MemberService memberService;
-
-    @GetMapping("/")
-    public String mainForm() {
-        return "main";
-    }
 
     @PostMapping("/sign-up")
     public ResponseEntity<BaseResponse> singUp(@RequestBody Member member) {
@@ -49,9 +42,19 @@ public class MemberController {
 
     @DeleteMapping("/members/{id}")
     public ResponseEntity<BaseResponse> deleteMember(@PathVariable Integer id) {
-        memberService.DeleteMember(id);
+        memberService.deleteMember(id);
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setMessage("멤버 삭제 성공.");
+        baseResponse.setCode("1000");
+        return new ResponseEntity<>(baseResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/members/{id}/address")
+    public ResponseEntity<BaseResponse> addAddress(@PathVariable Integer id,  @RequestBody AddressRequest addressRequest) {
+        memberService.addAddress(id, addressReques);
+
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setMessage("주소 입력 성공.");
         baseResponse.setCode("1000");
         return new ResponseEntity<>(baseResponse, HttpStatus.OK);
     }

@@ -1,6 +1,6 @@
 package com.study.jiyunboard.controller;
 
-import com.study.jiyunboard.request.CartRequestData;
+import com.study.jiyunboard.request.CartRequest;
 import com.study.jiyunboard.response.BaseResponse;
 import com.study.jiyunboard.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ public class CartController {
 
     @PostMapping("/carts")
     @ResponseBody
-    public ResponseEntity<BaseResponse> addCart(@RequestBody CartRequestData cartRequestData) {
-        cartService.addCart(cartRequestData);
+    public ResponseEntity<BaseResponse> addCart(@RequestBody CartRequest cartRequest) {
+        cartService.addCart(cartRequest);
 
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setMessage("장바구니가 담겼습니다.");
