@@ -37,7 +37,7 @@ public class MemberController {
 
     @GetMapping("/members")
     public ResponseEntity<List<Member>> memberList() {
-        return new ResponseEntity<>( memberService.memberList(), HttpStatus.OK);
+        return new ResponseEntity<>(memberService.memberList(), HttpStatus.OK);
     }
 
     @DeleteMapping("/members/{id}")
@@ -45,16 +45,6 @@ public class MemberController {
         memberService.deleteMember(id);
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setMessage("멤버 삭제 성공.");
-        baseResponse.setCode("1000");
-        return new ResponseEntity<>(baseResponse, HttpStatus.OK);
-    }
-
-    @PostMapping("/members/{id}/address")
-    public ResponseEntity<BaseResponse> addAddress(@PathVariable Integer id,  @RequestBody AddressRequest addressRequest) {
-        memberService.addAddress(id, addressReques);
-
-        BaseResponse baseResponse = new BaseResponse();
-        baseResponse.setMessage("주소 입력 성공.");
         baseResponse.setCode("1000");
         return new ResponseEntity<>(baseResponse, HttpStatus.OK);
     }
