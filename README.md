@@ -24,7 +24,7 @@ docker exec -it oracle11g sqlplus
 ```
 
 ## 테이블 생성 (테이블은 기능 추가됨에 따라 더 추가될 예정)
-- <img width="775" alt="스크린샷 2023-10-15 오전 11 42 00" src="https://github.com/jiyunbb/spring-boot-study/assets/23615455/7e3f60c6-d3ad-44da-a10a-94170ee484db">
+- <img width="786" alt="스크린샷 2023-10-15 오전 11 49 54" src="https://github.com/jiyunbb/spring-boot-study/assets/23615455/b26cd1eb-d6ee-4689-a2ee-79b7d55d9f6e">
 
 
 ## API 목록
@@ -104,7 +104,7 @@ docker exec -it oracle11g sqlplus
 ]
 ```
 
-### API : /members/{memberID}
+### API : /members/{member_ID}
 - METHOD : DELETE
 - 용도 : 멤버 삭제
 - 요청 : Path Paramter
