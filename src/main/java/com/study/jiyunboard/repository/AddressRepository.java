@@ -1,6 +1,5 @@
 package com.study.jiyunboard.repository;
 
-import com.study.jiyunboard.entity.Member;
 import com.study.jiyunboard.entity.ShippingInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

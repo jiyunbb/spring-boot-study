@@ -1,7 +1,6 @@
 package com.study.jiyunboard.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 

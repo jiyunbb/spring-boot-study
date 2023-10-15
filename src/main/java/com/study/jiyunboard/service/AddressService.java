@@ -1,6 +1,5 @@
 package com.study.jiyunboard.service;
 
-import com.study.jiyunboard.entity.Cart;
 import com.study.jiyunboard.entity.Member;
 import com.study.jiyunboard.entity.ShippingInfo;
 import com.study.jiyunboard.repository.AddressRepository;
