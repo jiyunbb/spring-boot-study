@@ -272,7 +272,7 @@ docker exec -it oracle11g sqlplus
     "shippingName" : "오징어",
     "shippingPhone" : "010-5172-9988",
     "zipcode" : "10523",
-    "isDefault" : 1
+    "isDefault" : 1 //TODO boolean 으로 바꿔보자!
 }
 ```
 - 응답 : 
