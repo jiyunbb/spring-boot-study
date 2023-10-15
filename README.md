@@ -1,5 +1,6 @@
 # spring-study
 thymeleaf + spring boot + docker + oracle xe-11g 사용하여 학습차 시작한 프로젝트
+-> thymeleaf 는 일단 하다가 잠시 멈추고.. REST API를 먼저 만들고 붙이려고 합니다.
 
 
 ## docker 세팅 및 오라클 db 설치
