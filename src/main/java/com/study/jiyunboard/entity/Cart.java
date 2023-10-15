@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Table(name = "CART")
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CART_SEQ")
+    @SequenceGenerator(sequenceName = "cart_seq", allocationSize = 1, name = "CART_SEQ")
     private Integer id;
 
     @ManyToOne
