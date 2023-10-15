@@ -23,8 +23,8 @@ docker ps -a
 docker exec -it oracle11g sqlplus
 ```
 
-## 테이블 생성
-- TBD 아키텍쳐 그리기 (진행중)
+## 테이블 생성 (테이블은 기능 추가됨에 따라 더 추가될 예정)
+- <img width="775" alt="스크린샷 2023-10-15 오전 11 42 00" src="https://github.com/jiyunbb/spring-boot-study/assets/23615455/7e3f60c6-d3ad-44da-a10a-94170ee484db">
 
 
 ## API 목록
@@ -212,6 +212,66 @@ docker exec -it oracle11g sqlplus
 ```
 {
     "message": "장바구니가 담겼습니다.",
+    "code": "1000"
+}
+```
+
+### API : /members/{MEMBER_ID}/address
+- METHOD : GET
+- 용도 : 유저의 주소지 정보 조회
+- 요청 : N/A
+- 응답 : 
+```
+[
+    {
+        "id": 1,
+        "member": {
+            "id": 1,
+            "name": "오징어",
+            "phone": "010-5172-9988"
+        },
+        "defaultAddress": "서울특별시 강남구 튤립아파트",
+        "detailAddress": "207동 203호",
+        "shippingName": "구렁이",
+        "shippingPhone": "010-3341-3333",
+        "zipcode": "10523",
+        "isDefault": 0
+    },
+    {
+        "id": 2,
+        "member": {
+            "id": 1,
+            "name": "오징어",
+            "phone": "010-5172-9988"
+        },
+        "defaultAddress": "서울특별시 강남구 삼성아파트",
+        "detailAddress": "205동 803호",
+        "shippingName": "오징어",
+        "shippingPhone": "010-5172-9988",
+        "zipcode": "10523",
+        "isDefault": 1
+    }
+]
+```
+
+### API : /members/{MEMBER_ID}/address
+- METHOD : POST
+- 용도 : 유저의 주소지 정보 입력
+- 요청 : Request Body
+```
+{
+    "defaultAddress" : "서울특별시 강남구 삼성아파트",
+    "detailAddress" : "205동 803호",
+    "shippingName" : "오징어",
+    "shippingPhone" : "010-5172-9988",
+    "zipcode" : "10523",
+    "isDefault" : 1
+}
+```
+- 응답 : 
+```
+{
+    "message": "주소지 입력 성공.",
     "code": "1000"
 }
 ```
