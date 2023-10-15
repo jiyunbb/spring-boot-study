@@ -9,5 +9,5 @@ public class ShippingInfoRequest {
     private String shippingName;
     private String shippingPhone;
     private String zipcode;
-    private boolean isDefault;
+    private int isDefault;
 }

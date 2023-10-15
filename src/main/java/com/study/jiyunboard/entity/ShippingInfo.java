@@ -1,6 +1,7 @@
 package com.study.jiyunboard.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -22,9 +23,9 @@ public class ShippingInfo {
     private String shippingName;
     private String shippingPhone;
     private String zipcode;
-    private boolean isDefault;
+    private int isDefault;
 
-    public static ShippingInfo createShippingInfo(Member member, String defaultAddress, String detailAddress, String shippingName, String shippingPhone, String zipcode, boolean isDefault) {
+    public static ShippingInfo createShippingInfo(Member member, String defaultAddress, String detailAddress, String shippingName, String shippingPhone, String zipcode, int isDefault) {
         ShippingInfo shippingInfo = new ShippingInfo();
         shippingInfo.setMember(member);
         shippingInfo.setDefaultAddress(defaultAddress);
@@ -32,7 +33,7 @@ public class ShippingInfo {
         shippingInfo.setShippingName(shippingName);
         shippingInfo.setShippingPhone(shippingPhone);
         shippingInfo.setZipcode(zipcode);
-        shippingInfo.setDefault(isDefault);
+        shippingInfo.setIsDefault(isDefault);
         return shippingInfo;
     }
 }

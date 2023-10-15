@@ -31,7 +31,7 @@ public class AddressService {
                     shippingInfoRequest.getShippingName(),
                     shippingInfoRequest.getShippingPhone(),
                     shippingInfoRequest.getZipcode(),
-                    shippingInfoRequest.isDefault()
+                    shippingInfoRequest.getIsDefault()
             );
             addressRepository.save(targetShippingInfo);
         });
