@@ -28,6 +28,12 @@ docker exec -it oracle11g sqlplus
 
 
 ## API 목록
+### 앞으로 필요한 API들
+- 주문하기
+- 주문취소
+- 유저별 주문목록조회
+- 상품등록(버전관리)
+
 ### API : /sign-up
 - METHOD : POST
 - 용도 : 회원가입
