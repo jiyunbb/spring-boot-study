@@ -9,6 +9,8 @@ import com.study.jiyunboard.request.CartRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +37,11 @@ public class CartService {
                 cartRepository.save(targetCart);
             }
         });
+    }
+
+    public List<Cart> getCartList(Integer userId) {
+        return memberRepository.findById(userId)
+                .map(member -> cartRepository.findByMember(member))
+                .orElseGet(Collections::emptyList);
     }
 }
