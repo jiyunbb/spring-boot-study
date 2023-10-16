@@ -194,7 +194,7 @@ docker exec -it oracle11g sqlplus
 }
 ```
 
-### API : /carts
+### API : /members/{MEMBER_ID}/carts
 - METHOD : POST
 - 용도 : 카트 담기 및 카드 수량 수정
 - 요청 : Request Body
@@ -207,11 +207,6 @@ docker exec -it oracle11g sqlplus
         "customerPrice" : 24000,
         "productPrice" : 16800,
         "discountRate" : 30
-    },
-    "member" : {
-        "id" : 1,
-        "name" : "왕지윤",
-        "phone" : "010-1111-1111"
     },
     "count" : 5
 }
