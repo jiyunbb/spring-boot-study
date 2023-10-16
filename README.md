@@ -150,7 +150,7 @@ docker exec -it oracle11g sqlplus
 ]
 ```
 
-### API : /goods
+### API : /goods?id={GOODS_ID}
 - METHOD : GET
 - 용도 : 상품 목록 조회
 - 요청 : Query Parameter -> id
