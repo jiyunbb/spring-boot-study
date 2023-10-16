@@ -30,10 +30,11 @@ docker exec -it oracle11g sqlplus
 
 ## API 목록
 ### 앞으로 필요한 API들
-- 주문하기
-- 주문취소
+- 주문하기 (주문 테이블 추가, 주문 상품 테이블 추가, 상품 테이블 내 재고 컬럼 추가, 주문 및 재고 차감 로직 트랜잭션)
+- 주문취소 (주문 취소 테이블 추가)
 - 유저별 주문목록조회
-- 상품등록(버전관리)
+- 상품등록(버전관리 포함, 상품 상세 정보 테이블 필요하면 추가)
+- 또 뭐가 있을까?
 
 ### API : /sign-up
 - METHOD : POST
@@ -193,7 +194,7 @@ docker exec -it oracle11g sqlplus
 }
 ```
 
-### API : /carts
+### API : /members/{MEMBER_ID}/carts
 - METHOD : POST
 - 용도 : 카트 담기 및 카드 수량 수정
 - 요청 : Request Body
@@ -206,11 +207,6 @@ docker exec -it oracle11g sqlplus
         "customerPrice" : 24000,
         "productPrice" : 16800,
         "discountRate" : 30
-    },
-    "member" : {
-        "id" : 1,
-        "name" : "왕지윤",
-        "phone" : "010-1111-1111"
     },
     "count" : 5
 }
@@ -272,7 +268,7 @@ docker exec -it oracle11g sqlplus
     "shippingName" : "오징어",
     "shippingPhone" : "010-5172-9988",
     "zipcode" : "10523",
-    "isDefault" : 1
+    "isDefault" : 1 //TODO boolean 으로 바꿔보자!
 }
 ```
 - 응답 : 
