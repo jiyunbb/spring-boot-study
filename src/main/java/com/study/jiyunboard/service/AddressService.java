@@ -8,6 +8,7 @@ import com.study.jiyunboard.request.ShippingInfoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,24 +21,21 @@ public class AddressService {
     MemberRepository memberRepository;
 
     public void addShippingInfo(Integer userId, ShippingInfoRequest shippingInfoRequest) {
-        Optional<Member> targetMember = memberRepository.findById(userId);
-        targetMember.ifPresent(member -> {
-            // targetMember가 존재하는 경우의 로직
-            ShippingInfo targetShippingInfo = ShippingInfo.createShippingInfo(
-                    member,
-                    shippingInfoRequest.getDefaultAddress(),
-                    shippingInfoRequest.getDetailAddress(),
-                    shippingInfoRequest.getShippingName(),
-                    shippingInfoRequest.getShippingPhone(),
-                    shippingInfoRequest.getZipcode(),
-                    shippingInfoRequest.getIsDefault()
-            );
-            addressRepository.save(targetShippingInfo);
-        });
+        Member member = memberRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
+        ShippingInfo targetShippingInfo = ShippingInfo.createShippingInfo(
+                member,
+                shippingInfoRequest.getDefaultAddress(),
+                shippingInfoRequest.getDetailAddress(),
+                shippingInfoRequest.getShippingName(),
+                shippingInfoRequest.getShippingPhone(),
+                shippingInfoRequest.getZipcode(),
+                shippingInfoRequest.getIsDefault()
+        );
+        addressRepository.save(targetShippingInfo);
     }
 
     public List<ShippingInfo> shippingInfoList(Integer userId) {
-//        Optional<Member> targetMember = memberRepository.findById(userId);
+        memberRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
         return addressRepository.findShippingInfoByUserId(userId);
     }
 }
