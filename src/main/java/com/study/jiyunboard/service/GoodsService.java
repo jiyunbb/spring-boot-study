@@ -21,7 +21,7 @@ public class GoodsService {
         return goodsRepository.findById(id).get();
     }
 
-    // TODO 재고 처리 관련 낙관적인 락 테스트 -> 이후 주문 로직 개발되면 그쪽으로 옮기기.
+    // TODO 재고 처리 관련 낙관적인 락 테스트 -> 이후 주문 로직 개발되면 그쪽으로 옮기기. redisson을 이용하여 동시성 이슈 해결해보면 좋을 듯!
     public void decreaseStockCount(Integer id) {
         /*
          * 낙관적 락(Optimistic Lock)

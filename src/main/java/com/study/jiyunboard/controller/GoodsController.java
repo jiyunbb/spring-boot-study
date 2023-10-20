@@ -23,7 +23,7 @@ public class GoodsController {
         }
     }
 
-    // TODO 이후에 주문로직으로 합쳐지도록 수정이 필요하다. - 낙관적인 락 테스트.
+    // TODO 이후에 주문로직으로 합쳐지도록 수정이 필요하다. - 낙관적인 락 테스트, 다만 분산락을 redisson을 이용하여 동시성 이슈 해결해보면 좋을 듯!
     @GetMapping("/goods/{id}/decrease-stock")
     public void decreaseStockCount(@PathVariable Integer id){
         goodsService.decreaseStockCount(id);
