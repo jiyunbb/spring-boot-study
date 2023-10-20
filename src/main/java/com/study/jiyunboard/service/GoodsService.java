@@ -33,6 +33,9 @@ public class GoodsService {
          * 충돌이 발생할것이라 가정하고 우선 DB에 Lock을 거는 방식 (select for update)
          * 데이터를 수정하는 즉시 충돌을 알 수 있음
          * DB Level 동시성을 처리
+         *
+         * 전 회사에서 커머스 기능 사용 시 select_for_update 라는 장고 orm 내 함수를 이용했었음. -> 비관적인 락.
+         * 낙관적인 접근은 하지 않았음.
          * */
         Goods goods = goodsRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         goods.decreaseStockCount(1);
