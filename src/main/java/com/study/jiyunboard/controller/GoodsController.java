@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GoodsController {
@@ -24,4 +22,11 @@ public class GoodsController {
             return new ResponseEntity<>(goodsService.goodsList(), HttpStatus.OK);
         }
     }
+
+    // TODO 이후에 주문로직으로 합쳐지도록 수정이 필요하다. - 낙관적인 락 테스트.
+    @GetMapping("/goods/{id}/decrease-stock")
+    public void decreaseStockCount(@PathVariable Integer id){
+        goodsService.decreaseStockCount(id);
+    }
+
 }
