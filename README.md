@@ -167,6 +167,40 @@ docker exec -it oracle11g sqlplus
 ```
 
 ### API : /members/{MEMBER_ID}/carts
+- METHOD : GET
+- 용도 : 장바구니 목록 조회
+- 요청 : Path Parameter
+- 응답 : 
+```
+[
+    {
+        "id": 3,
+        "goods": {
+            "id": 2,
+            "version": 1,
+            "name": "[각질케어]바하 필링 앰플 30ml",
+            "customerPrice": 24000,
+            "productPrice": 16800,
+            "discountRate": 30
+        },
+        "count": 6
+    },
+    {
+        "id": 4,
+        "goods": {
+            "id": 1,
+            "version": 1,
+            "name": "[각질패드]바하 필링 패드 50매 (110ml)",
+            "customerPrice": 24000,
+            "productPrice": 16800,
+            "discountRate": 30
+        },
+        "count": 5
+    }
+]
+```
+
+### API : /members/{MEMBER_ID}/carts
 - METHOD : POST
 - 용도 : 카트 담기 및 카드 수량 수정
 - 요청 : Request Body
@@ -200,11 +234,6 @@ docker exec -it oracle11g sqlplus
 [
     {
         "id": 1,
-        "member": {
-            "id": 1,
-            "name": "오징어",
-            "phone": "010-5172-9988"
-        },
         "defaultAddress": "서울특별시 강남구 튤립아파트",
         "detailAddress": "207동 203호",
         "shippingName": "구렁이",
@@ -214,11 +243,6 @@ docker exec -it oracle11g sqlplus
     },
     {
         "id": 2,
-        "member": {
-            "id": 1,
-            "name": "오징어",
-            "phone": "010-5172-9988"
-        },
         "defaultAddress": "서울특별시 강남구 삼성아파트",
         "detailAddress": "205동 803호",
         "shippingName": "오징어",
